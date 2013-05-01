@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
-		<meta name="generator" content="appledoc 2.0.6 (build 789)" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
 	</head>
 	<body>
 		<header id="top_header">
@@ -65,7 +65,11 @@
 	
 	<option value="//api/name/expunge">&nbsp;&nbsp;&nbsp;&nbsp;- expunge</option>
 	
+	<option value="//api/name/extensionFlagsForMessage:flags:">&nbsp;&nbsp;&nbsp;&nbsp;- extensionFlagsForMessage:flags:</option>
+	
 	<option value="//api/name/flagsForMessage:flags:">&nbsp;&nbsp;&nbsp;&nbsp;- flagsForMessage:flags:</option>
+	
+	<option value="//api/name/flagsForMessage:flags:extensionFlags:">&nbsp;&nbsp;&nbsp;&nbsp;- flagsForMessage:flags:extensionFlags:</option>
 	
 	<option value="//api/name/idleWithTimeout:">&nbsp;&nbsp;&nbsp;&nbsp;- idleWithTimeout:</option>
 	
@@ -77,11 +81,19 @@
 	
 	<option value="//api/name/messagesFromUID:to:withFetchAttributes:">&nbsp;&nbsp;&nbsp;&nbsp;- messagesFromUID:to:withFetchAttributes:</option>
 	
+	<option value="//api/name/messagesWithSequenceNumbers:fetchAttributes:">&nbsp;&nbsp;&nbsp;&nbsp;- messagesWithSequenceNumbers:fetchAttributes:</option>
+	
+	<option value="//api/name/messagesWithUIDs:fetchAttributes:">&nbsp;&nbsp;&nbsp;&nbsp;- messagesWithUIDs:fetchAttributes:</option>
+	
 	<option value="//api/name/moveMessageWithUID:toPath:">&nbsp;&nbsp;&nbsp;&nbsp;- moveMessageWithUID:toPath:</option>
 	
 	<option value="//api/name/path">&nbsp;&nbsp;&nbsp;&nbsp;- path</option>
 	
 	<option value="//api/name/sequenceNumberForUID:sequenceNumber:">&nbsp;&nbsp;&nbsp;&nbsp;- sequenceNumberForUID:sequenceNumber:</option>
+	
+	<option value="//api/name/setExtensionFlags:forMessage:">&nbsp;&nbsp;&nbsp;&nbsp;- setExtensionFlags:forMessage:</option>
+	
+	<option value="//api/name/setFlags:extensionFlags:forMessage:">&nbsp;&nbsp;&nbsp;&nbsp;- setFlags:extensionFlags:forMessage:</option>
 	
 	<option value="//api/name/setFlags:forMessage:">&nbsp;&nbsp;&nbsp;&nbsp;- setFlags:forMessage:</option>
 	
@@ -149,7 +161,11 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/expunge">expunge</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/extensionFlagsForMessage:flags:">extensionFlagsForMessage:flags:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/flagsForMessage:flags:">flagsForMessage:flags:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/flagsForMessage:flags:extensionFlags:">flagsForMessage:flags:extensionFlags:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/idleWithTimeout:">idleWithTimeout:</a></span></li>
 	
@@ -161,11 +177,19 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/messagesFromUID:to:withFetchAttributes:">messagesFromUID:to:withFetchAttributes:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/messagesWithSequenceNumbers:fetchAttributes:">messagesWithSequenceNumbers:fetchAttributes:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/messagesWithUIDs:fetchAttributes:">messagesWithUIDs:fetchAttributes:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/moveMessageWithUID:toPath:">moveMessageWithUID:toPath:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/path">path</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sequenceNumberForUID:sequenceNumber:">sequenceNumberForUID:sequenceNumber:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setExtensionFlags:forMessage:">setExtensionFlags:forMessage:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setFlags:extensionFlags:forMessage:">setFlags:extensionFlags:forMessage:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setFlags:forMessage:">setFlags:forMessage:</a></span></li>
 	
@@ -290,6 +314,20 @@ method in <a href="../Classes/CTCoreAccount.html">CTCoreAccount</a> folderWithPa
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/messagesWithSequenceNumbers:fetchAttributes:">&ndash;&nbsp;messagesWithSequenceNumbers:fetchAttributes:</a></code>
+		<span class="tooltip"><p>Use this method to download message lists from the server.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/messagesWithUIDs:fetchAttributes:">&ndash;&nbsp;messagesWithUIDs:fetchAttributes:</a></code>
+		<span class="tooltip"><p>Use this method to download message lists from the server.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/sequenceNumberForUID:sequenceNumber:">&ndash;&nbsp;sequenceNumberForUID:sequenceNumber:</a></code>
 		<span class="tooltip"><p>Pulls the sequence number for the message with the specified uid.
 It does not perform UID validation, and the sequence ID is only
@@ -382,6 +420,35 @@ documentation for flagsForMessage:</p></span>
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/extensionFlagsForMessage:flags:">&ndash;&nbsp;extensionFlagsForMessage:flags:</a></code>
+		<span class="tooltip"><p>Retrieves the message extension flags.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setExtensionFlags:forMessage:">&ndash;&nbsp;setExtensionFlags:forMessage:</a></code>
+		<span class="tooltip"><p>Sets the message&rsquo;s extension flags on the server.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/flagsForMessage:flags:extensionFlags:">&ndash;&nbsp;flagsForMessage:flags:extensionFlags:</a></code>
+		<span class="tooltip"><p>Retrieves the message&rsquo;s flags and extension flags, take a look at the
+documentation for flagsForMessage:</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setFlags:extensionFlags:forMessage:">&ndash;&nbsp;setFlags:extensionFlags:forMessage:</a></code>
+		<span class="tooltip"><p>Sets the message&rsquo;s flags and extension flags on the server.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/expunge">&ndash;&nbsp;expunge</a></code>
 		<span class="tooltip"><p>Deletes all messages contained in the folder that are marked for
 deletion. Deleting messages in IMAP is a little strange, first
@@ -408,16 +475,16 @@ in, it will be deleted.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/unreadMessageCount:">&ndash;&nbsp;unreadMessageCount:</a></code>
-		<span class="tooltip"><p>Returns the number of unread messages. This causes a round trip to the server, as it fetches
-the count for each call.</p></span>
+		<span class="tooltip"><p>Pass in a pointer to a NSUInteger to get the number of unread messages. This causes a round trip to the server,
+as it fetches the count for each call.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/totalMessageCount:">&ndash;&nbsp;totalMessageCount:</a></code>
-		<span class="tooltip"><p>Returns the number of messages in the folder. The count was retrieved when the folder connection was
-established, so to refresh the count you must <a href="#//api/name/disconnect">disconnect</a> and re<a href="#//api/name/connect">connect</a>.</p></span>
+		<span class="tooltip"><p>Pass in a pointer to a NSUInteger to get the number of messages in the folder. The count was retrieved
+when the folder connection was established, so to refresh the count you must <a href="#//api/name/disconnect">disconnect</a> and re<a href="#//api/name/connect">connect</a>.</p></span>
 	</span>
 	
 	
@@ -884,6 +951,52 @@ in, it will be deleted.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/extensionFlagsForMessage:flags:" title="extensionFlagsForMessage:flags:"></a>
+	<h3 class="subsubtitle method-title">extensionFlagsForMessage:flags:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Retrieves the message extension flags.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)extensionFlagsForMessage:(CTCoreMessage *)<em>msg</em> flags:(NSArray **)<em>flags</em></code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Return YES on success, NO on error. Call method <a href="#//api/name/lastError">lastError</a> to get error if one occurred</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Retrieves the message extension flags.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CTCoreFolder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/flagsForMessage:flags:" title="flagsForMessage:flags:"></a>
 	<h3 class="subsubtitle method-title">flagsForMessage:flags:</h3>
 	
@@ -919,6 +1032,54 @@ CTFlagAnswered, CTFlagForwarded.</p>
 Here is a list of message flags:
 CTFlagNew, CTFlagSeen, CTFlagFlagged, CTFlagDeleted,
 CTFlagAnswered, CTFlagForwarded.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CTCoreFolder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/flagsForMessage:flags:extensionFlags:" title="flagsForMessage:flags:extensionFlags:"></a>
+	<h3 class="subsubtitle method-title">flagsForMessage:flags:extensionFlags:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Retrieves the message&rsquo;s flags and extension flags, take a look at the
+documentation for flagsForMessage:</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)flagsForMessage:(CTCoreMessage *)<em>msg</em> flags:(NSUInteger *)<em>flags</em> extensionFlags:(NSArray **)<em>extensionFlags</em></code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Return YES on success, NO on error. Call method <a href="#//api/name/lastError">lastError</a> to get error if one occurred</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Retrieves the message&rsquo;s flags and extension flags, take a look at the
+documentation for flagsForMessage:</p>
 	</div>
 	
 	
@@ -1131,12 +1292,12 @@ method in <a href="../Classes/CTCoreAccount.html">CTCoreAccount</a> folderWithPa
 <p>This method take fetch attributes which configure what is fetched. Fetch attributes can be combined
 so you fetch all the message data at once, or select which pieces you want for your app. You can
 also fetch just the default attributes which will be as fast as possible. Pass in
-CTFetchAttrDefaultsOnly to attrs fetch the minimum possible, this includes the UID, RFC822.size, and
+CTFetchAttrDefaultsOnly to attrs fetch the minimum possible, this includes the UID and
 flags. The defaults are always fetched, even when you don&rsquo;t pass in this flag.  Use
 CTFetchAttrBodyStructure to also fetch the body structure of the message. This prevents a future
 round trip done by <a href="../Classes/CTCoreMessage.html#//api/name/fetchBodyStructure">[CTCoreMessage fetchBodyStructure]</a>, if it sees you already have the body
 structure it won&rsquo;t re-fetch it.  Use CTFetchAttrEnvelope if you&rsquo;d like to fetch the subject, to,
-from, cc, bcc, sender, date etc. You can also fetch both the envelope and body structure by passing
+from, cc, bcc, sender, date, size, etc. You can also fetch both the envelope and body structure by passing
 in CTFetchAttrEnvelope | CTFetchAttrBodyStructure</p>
 	</div>
 	
@@ -1206,6 +1367,150 @@ in CTFetchAttrEnvelope | CTFetchAttrBodyStructure</p>
 		<p>Use this method to download message lists from the server.</p>
 
 <p>This method uses UID ranges to determine which messages to download, while <a href="#//api/name/messagesFromSequenceNumber:to:withFetchAttributes:">messagesFromSequenceNumber:to:withFetchAttributes:</a> uses sequence numbers.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/messagesFromSequenceNumber:to:withFetchAttributes:">&ndash; messagesFromSequenceNumber:to:withFetchAttributes:</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CTCoreFolder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/messagesWithSequenceNumbers:fetchAttributes:" title="messagesWithSequenceNumbers:fetchAttributes:"></a>
+	<h3 class="subsubtitle method-title">messagesWithSequenceNumbers:fetchAttributes:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Use this method to download message lists from the server.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSArray *)messagesWithSequenceNumbers:(NSIndexSet *)<em>sequenceNumbers</em> fetchAttributes:(CTFetchAttributes)<em>attrs</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>sequenceNumbers</em></dt>
+			<dd><p>The indexset of sequence numbers to load.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>attrs</em></dt>
+			<dd><p>This controls what is fetched.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns a NSArray of CTCoreMessage&rsquo;s. Returns nil on error</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Use this method to download message lists from the server.</p>
+
+<p>This method uses sequence numbers indexset to determine which messages to download.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection see-also-section">
+		<h4 class="method-subtitle">See Also</h4>
+		<ul>
+			
+			<li><code><p><a href="#//api/name/messagesFromSequenceNumber:to:withFetchAttributes:">&ndash; messagesFromSequenceNumber:to:withFetchAttributes:</a></p></code></li>
+			
+		</ul>
+	</div>
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CTCoreFolder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/messagesWithUIDs:fetchAttributes:" title="messagesWithUIDs:fetchAttributes:"></a>
+	<h3 class="subsubtitle method-title">messagesWithUIDs:fetchAttributes:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Use this method to download message lists from the server.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSArray *)messagesWithUIDs:(NSIndexSet *)<em>uidNumbers</em> fetchAttributes:(CTFetchAttributes)<em>attrs</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>uidNumbers</em></dt>
+			<dd><p>The indexset of uid numbers to load.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>attrs</em></dt>
+			<dd><p>This controls what is fetched.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Returns a NSArray of CTCoreMessage&rsquo;s. Returns nil on error</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Use this method to download message lists from the server.</p>
+
+<p>This method uses uid numbers indexset to determine which messages to download.</p>
 	</div>
 	
 	
@@ -1362,6 +1667,98 @@ valid per session.</p>
 		<p>Pulls the sequence number for the message with the specified uid.
 It does not perform UID validation, and the sequence ID is only
 valid per session.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CTCoreFolder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setExtensionFlags:forMessage:" title="setExtensionFlags:forMessage:"></a>
+	<h3 class="subsubtitle method-title">setExtensionFlags:forMessage:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets the message&rsquo;s extension flags on the server.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)setExtensionFlags:(NSArray *)<em>flags</em> forMessage:(CTCoreMessage *)<em>msg</em></code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Return YES on success, NO on error. Call method <a href="#//api/name/lastError">lastError</a> to get error if one occurred</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sets the message&rsquo;s extension flags on the server.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CTCoreFolder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setFlags:extensionFlags:forMessage:" title="setFlags:extensionFlags:forMessage:"></a>
+	<h3 class="subsubtitle method-title">setFlags:extensionFlags:forMessage:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sets the message&rsquo;s flags and extension flags on the server.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)setFlags:(NSUInteger)<em>flags</em> extensionFlags:(NSArray *)<em>extensionFlags</em> forMessage:(CTCoreMessage *)<em>msg</em></code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Return YES on success, NO on error. Call method <a href="#//api/name/lastError">lastError</a> to get error if one occurred</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Sets the message&rsquo;s flags and extension flags on the server.</p>
 	</div>
 	
 	
@@ -1537,8 +1934,8 @@ documentation for flagsForMessage:</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns the number of messages in the folder. The count was retrieved when the folder connection was
-established, so to refresh the count you must <a href="#//api/name/disconnect">disconnect</a> and re<a href="#//api/name/connect">connect</a>.</p>
+		<p>Pass in a pointer to a NSUInteger to get the number of messages in the folder. The count was retrieved
+when the folder connection was established, so to refresh the count you must <a href="#//api/name/disconnect">disconnect</a> and re<a href="#//api/name/connect">connect</a>.</p>
 	</div>		
 	
     
@@ -1560,8 +1957,8 @@ established, so to refresh the count you must <a href="#//api/name/disconnect">d
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Returns the number of messages in the folder. The count was retrieved when the folder connection was
-established, so to refresh the count you must <a href="#//api/name/disconnect">disconnect</a> and re<a href="#//api/name/connect">connect</a>.</p>
+		<p>Pass in a pointer to a NSUInteger to get the number of messages in the folder. The count was retrieved
+when the folder connection was established, so to refresh the count you must <a href="#//api/name/disconnect">disconnect</a> and re<a href="#//api/name/connect">connect</a>.</p>
 	</div>
 	
 	
@@ -1671,8 +2068,8 @@ local cached UID&rsquo;s are still valid, or if the server has changed UID&rsquo
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns the number of unread messages. This causes a round trip to the server, as it fetches
-the count for each call.</p>
+		<p>Pass in a pointer to a NSUInteger to get the number of unread messages. This causes a round trip to the server,
+as it fetches the count for each call.</p>
 	</div>		
 	
     
@@ -1694,8 +2091,8 @@ the count for each call.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Returns the number of unread messages. This causes a round trip to the server, as it fetches
-the count for each call.</p>
+		<p>Pass in a pointer to a NSUInteger to get the number of unread messages. This causes a round trip to the server,
+as it fetches the count for each call.</p>
 	</div>
 	
 	
@@ -1771,9 +2168,9 @@ the count for each call.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2012 Central Atomics Inc.. All rights reserved. (Last updated: 2012-11-24)</span><br />
+						<p><span class="copyright">&copy; 2013 Central Atomics Inc.. All rights reserved. (Last updated: 2013-04-30)</span><br />
 						
-						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.6 (build 789)</a>.</span></p>
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
 					</div>
 				</div>
