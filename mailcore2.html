@@ -50,10 +50,12 @@
 <h3>Fetching Messages</h3>
 <p>This example shows how to use IMAP to fetch messages from the GMail servers.</p>
 
+<script src="https://gist.github.com/mronge/5581549.js"></script>
+
 <h3>Sending a Message</h3>
 <p>This example shows how you can send email using MailCore.</p>
 
-<script src="https://gist.github.com/3893098.js"> </script>
+//TODO
 
 <h3>More examples...</h3>
 <p>Check out more examples: TODO</p>
@@ -87,6 +89,11 @@ git checkout 2.0.0 # Checkout the latest stable version
 <h3>Reference</h3>
 <li>
     <ul><a href="api/index.html">API docs</a></ul>
+</li>
+
+<h3>Sample Code</h3>
+<li>
+    <ul><p>Sample code is included with the project on Github <a href="https://github.com/MailCore/mailcore2/tree/master/example">here</a>.</ul>
 </li>
 
 <h3>Migrating</h3>
@@ -127,6 +134,13 @@ git checkout 2.0.0 # Checkout the latest stable version
 <li>OneMail</li>
 <li>Notify</li>
 </ul>
+
+<h2 id="faq">FAQ</h2>
+
+<h3>What happened to MailCore 1.0?</h3>
+<p>Fear not, <a href="https://www.github.com/mronge/mailcore">MailCore 1.0</a> will continue to be maintained as many apps use it. Under the hood both libraries use the same C library <a href="https://github.com/dinhviethoa/libetpan">libEtPan</a>. New features however will be added to MailCore 2.0. There is a synchronous C++ interface in MailCore 2.0 that would be a suitable replacement for the MailCore 1.0 API. Depending on demand, we may create an Objective-C synchronous API that would make transitioning easier.</p>
+
+<p>TODO</p>
 
 <h2 id="consulting">Consulting</h2>
 
