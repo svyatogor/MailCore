@@ -6,7 +6,7 @@
   <link href="mailcore.css" media="screen" rel="stylesheet" type="text/css" />
 </head>
 <body class="normal">
-<p><a href="https://github.com/MailCore/MailCore2"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a></p>
+<p><a href="https://github.com/MailCore/MailCore2"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"/></a></p>
 <div id="main">
 
 <div id="title-header">
@@ -17,7 +17,7 @@
 
 <div id="wrapper">
 
-<p>MailCore is a Mac and iOS library designed to ease the pain of working with e-mail protocols. MailCore is batteries included with support for SMTP, IMAP, POP3, MIME and rendering of HTML messages.</p>
+<p>MailCore is a Mac and iOS library designed to ease the pain of working with e-mail protocols. MailCore is batteries included with support for SMTP, IMAP, POP3, RFC822, MIME and rendering of HTML messages.</p>
 
 <hr />    
 
@@ -36,13 +36,15 @@
 
 <h2 id="announcing">Announcing MailCore 2!</h2>
 
-<p>From the authors of Sparrow and MailCore 1.0 comes the new and improved MailCore 2! MailCore has been completely redesigned from the ground up with a new blocks based API. In addition to the existing support for IMAP and SMTP, here are some of the new features:
+<p>From the authors of Sparrow and MailCore 1.0 comes the new and improved MailCore 2! MailCore has been completely redesigned from the ground up with a new blocks based API. It features:</p>
 
 <ul>
-<li>UI widgets for HTML message rendering</li>
-<li>An asynchronous API with Objective-C blocks</li>
-<li>POP3</li>
-<li>A portable core engine</li>
+<li><b>POP</b>, <b>IMAP</b>, and <b>SMTP</b> support</li>
+<li><b><a href="http://www.ietf.org/rfc/rfc0822.txt">RFC822</a></b> parser and generator</li>
+<li><b>UI widgets</b> for rendering HTML messages</li>
+<li><b>Asynchronous</b> APIs with Objective-C blocks</li>
+<li><b>iOS</b> and <b>Mac</b> support</li>
+<li><b>Portable</b> core engine in C++</li>
 </ul>
 
 <h2 id="example">Getting Started</h2>
@@ -55,51 +57,43 @@
 <h3>Sending a Message</h3>
 <p>This example shows how you can send email using MailCore.</p>
 
-//TODO
+<script src="https://gist.github.com/mronge/5694886.js"></script>
 
 <h3>More examples...</h3>
-<p>Check out more examples: TODO</p>
+<p>Check out more examples on the project <a href="https://github.com/MailCore/mailcore2/wiki#examples">wiki</a>.</p>
 
 <h2 id="gettingcode">Getting the Code</h2>
 
-<p>You have two options for setting up MailCore, from simplest to hardest:</p>
-
-<h3>CocoaPods</h3>
-
-<p>Add <code>'MailCore2', '~> 2.0.0'</code> to your <a href="http://cocoapods.org/">Podfile</a>. That's it!</p>
-
-<h3>Raw Sources</h3>
-
-<p>If you are brave and want to build from raw sources then checkout directly from git:</p>
+<p>Checkout the code directly from git:</p>
 
 <pre><code class="bash">git clone https://github.com/MailCore/MailCore2.git 
 cd MailCore/
 git checkout 2.0.0 # Checkout the latest stable version
 </code></pre>
 
-<p>From there: TODO</p>
+<p>From there follow the <a href="https://github.com/MailCore/mailcore2#installation">installation instructions</a>.</p>
 
 <h2 id="docs">Documentation</h2>
 
 <h3>Guides</h3>
-<li>
-    <ul><a href="gettingstarted.html">Getting Started</a></ul>
-</li>
+<ul>
+    <li><a href="mailcore2/gettingstarted.html">Getting Started</a></li>
+</ul>
 
 <h3>Reference</h3>
-<li>
-    <ul><a href="api/index.html">API docs</a></ul>
-</li>
+<ul>
+    <li><a href="mailcore2/api/index.html">API docs</a></li>
+</ul>
 
 <h3>Sample Code</h3>
-<li>
-    <ul><p>Sample code is included with the project on Github <a href="https://github.com/MailCore/mailcore2/tree/master/example">here</a>.</ul>
-</li>
+<ul>
+    <li>Sample code is included with the project on Github <a href="https://github.com/MailCore/mailcore2/tree/master/example">here</a>.</li>
+</ul>
 
 <h3>Migrating</h3>
-<li>
-    <ul><a href="">Migrating from MailCore 10</a></ul>
-</li>
+<ul>
+    <li><a href="https://github.com/MailCore/mailcore2/wiki/Changes-From-The-Original-MailCore">Migrating from MailCore 1.0</a></li>
+</ul>
 
 <h2 id="mailinglist">Mailing List</h2>
 
@@ -108,12 +102,15 @@ git checkout 2.0.0 # Checkout the latest stable version
 <ul>
 <li>To join send an email to <a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#x3a;&#109;&#x61;&#x69;&#108;&#x63;&#x6f;&#114;&#x65;&#x40;&#108;&#x69;&#x62;&#x72;&#x65;&#x6c;&#105;&#115;&#116;&#x2e;&#99;&#111;&#x6d;">&#x6d;&#97;&#x69;&#108;&#x63;&#111;&#x72;&#101;&#64;&#x6c;&#105;&#x62;&#x72;&#x65;&#108;&#x69;&#x73;&#116;&#46;&#99;&#111;&#x6d;</a> and reply to the confirmation e-mail. To unsubscribe at anytime send an e-mail to <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x6d;&#x61;&#x69;&#x6c;&#x63;&#111;&#x72;&#101;&#x2d;&#117;&#x6e;&#x73;&#117;&#98;&#x73;&#x63;&#114;&#105;&#x62;&#x65;&#64;&#x6c;&#105;&#98;&#114;&#101;&#x6c;&#x69;&#115;&#x74;&#46;&#x63;&#x6f;&#x6d;">&#x6d;&#x61;&#x69;&#x6c;&#x63;&#x6f;&#x72;&#x65;&#45;&#x75;&#110;&#x73;&#x75;&#x62;&#x73;&#99;&#x72;&#105;&#x62;&#x65;&#x40;&#108;&#105;&#98;&#x72;&#101;&#x6c;&#105;&#115;&#116;&#46;&#x63;&#x6f;&#109;</a>.</li>
 <li>Mailing list archives are <a href="http://librelist.com/browser/mailcore/">available.</a></li>
+<li>For contributors we have a dev mailing list, send an email to this address to subscribe: <a href='mailto&#58;ma%69%6Cc%6Fr&#37;6&#53;&#100;ev&#64;l&#37;69br%65&#37;6&#67;i%73t&#46;&#99;om'>ma&#105;l&#99;oredev&#64;lib&#114;e&#108;ist&#46;co&#109;</a></li>
 </ul>
+
 
 <h2 id="apps">Cool Apps Using MailCore</h2>
 
 <ul>
 <li><a href="http://getpebble.com/">Pebble</a></li>
+<li><a href="http://airmailapp.info/">Airmail</a></li>
 <li><a href="http://qsapp.com/">Quicksilver</a></li>
 <li><a href="http://www.triage.cc/">Triage</a></li>
 <li><a href="http://www.goldenhillsoftware.com/">CloudPull</a></li>
@@ -137,10 +134,20 @@ git checkout 2.0.0 # Checkout the latest stable version
 
 <h2 id="faq">FAQ</h2>
 
-<h3>What happened to MailCore 1.0?</h3>
-<p>Fear not, <a href="https://www.github.com/mronge/mailcore">MailCore 1.0</a> will continue to be maintained as many apps use it. Under the hood both libraries use the same C library <a href="https://github.com/dinhviethoa/libetpan">libEtPan</a>. New features however will be added to MailCore 2.0. There is a synchronous C++ interface in MailCore 2.0 that would be a suitable replacement for the MailCore 1.0 API. Depending on demand, we may create an Objective-C synchronous API that would make transitioning easier.</p>
+<h3>Q: What happened to MailCore 1.0?</h3>
+<p>A: <a href="https://www.github.com/mailcore/mailcore">MailCore 1.0</a> will continue to be maintained. Under the hood both libraries use the same C library <a href="https://github.com/dinhviethoa/libetpan">libEtPan</a>. There is a synchronous C++ interface in MailCore 2.0 that would be a suitable replacement for the MailCore 1.0 API. Unfortunately to create a more flexible and asynchronous API we had to start over.</p>
 
-<p>TODO</p>
+<h3>Q: What platforms does MailCore support?</h3>
+<p>A: Out of the box iOS and Mac OS X are supported. However the core engine is portable C/C++ and could be ported to Linux and Windows, which we are hoping to do. We'd love to see more language bindings against the engine, perhaps Node.js, Python, Ruby?</p>
+
+<h3>Q: Can I use MailCore in my commercial app?</h3>
+<p>A: Absolutely! MailCore is BSD licensed and all dependencies have licenses that are compatible with commercial software</p>
+
+<h3>Q: Why no CocoaPods love?</h3>
+<p>A: We <b>REALLY</b> want to support CocoaPods, but we we first need to create Pods for all the C dependencies.</p>
+
+<h3>Q: Can I help out?</h3>
+<p>Yes, please do! Fork the repo on GitHub and get started hacking or writing docs! Contributions are done using GitHub pull requests. Check the <a href="https://github.com/MailCore/mailcore2/blob/master/TODO.md">TODO file</a> for items to work on. </p>
 
 <h2 id="consulting">Consulting</h2>
 
