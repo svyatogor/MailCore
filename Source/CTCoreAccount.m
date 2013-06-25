@@ -110,10 +110,10 @@
 
 - (NSSet *)capabilities {
     NSMutableSet *capabilitiesSet = [NSMutableSet set];
-    
+
     int r;
     struct mailimap_capability_data *capabilities;
-    
+
     r = mailimap_capability(self.session, &capabilities);
     if (r != MAILIMAP_NO_ERROR) {
         self.lastError = MailCoreCreateErrorFromIMAPCode(r);
@@ -123,7 +123,7 @@
     for(clistiter * cur = clist_begin(capabilities->cap_list); cur != NULL ; cur = cur->next) {
         struct mailimap_capability *capability;
         NSString *name;
-        
+
         capability = clist_content(cur);
         name = nil;
         switch (capability->cap_type) {
@@ -139,7 +139,7 @@
         }
     }
     mailimap_capability_data_free(capabilities);
-    
+
     return capabilitiesSet;
 }
 
@@ -204,7 +204,7 @@
         if (flags) {
             selectable = !(flags->mbf_type==MAILIMAP_MBX_LIST_FLAGS_SFLAG && flags->mbf_sflag==MAILIMAP_MBX_LIST_SFLAG_NOSELECT);
         }
-        
+
         if (selectable) {
             mailboxName = mailboxStruct->mb_name;
             // Per RFC 3501, mailbox names must use 7-bit enconding (UTF-7).
@@ -253,7 +253,7 @@
             mailboxName = mailboxStruct->mb_name;
             // Per RFC 3501, mailbox names must use 7-bit enconding (UTF-7).
             mailboxNameObject = (NSString *)CFStringCreateWithCString(NULL, mailboxName, kCFStringEncodingUTF7_IMAP);
-            
+
             if (mailboxStruct->mb_delimiter) {
                 self.pathDelimiter = [NSString stringWithFormat:@"%c", mailboxStruct->mb_delimiter];
             } else {
@@ -272,16 +272,16 @@
     struct mailimap_mbx_list_oflag * oflagStruct;
     clist *allList;
     clistiter *cur, *flagIter;
-    
+
     NSString *mailboxNameObject;
     char *mailboxName;
     NSString *flagNameObject;
     char *flagName;
     int err;
-    
+
     NSMutableSet *allFolders = [NSMutableSet set];
     CTXlistResult *listResult;
-    
+
     //Now, fill the all folders array
     //TODO Fix this so it doesn't use *
     err = mailimap_xlist([self session], "", "*", &allList);
@@ -301,17 +301,17 @@
             mailboxName = mailboxStruct->mb_name;
             // Per RFC 3501, mailbox names must use 7-bit enconding (UTF-7).
             mailboxNameObject = (NSString *)CFStringCreateWithCString(NULL, mailboxName, kCFStringEncodingUTF7_IMAP);
-            
+
             if (mailboxStruct->mb_delimiter) {
                 self.pathDelimiter = [NSString stringWithFormat:@"%c", mailboxStruct->mb_delimiter];
             } else {
                 self.pathDelimiter = @"/";
             }
-            
+
             listResult = [[CTXlistResult alloc] init];
             [listResult setName:mailboxNameObject];
             [mailboxNameObject release];
-            
+
             if (flags) {
                 for (flagIter = clist_begin(flags->mbf_oflags); flagIter != NULL; flagIter = flagIter->next) {
                     oflagStruct = flagIter->data;
@@ -324,12 +324,43 @@
                     [flagNameObject release];
                 }
             }
-            
+
             [allFolders addObject:listResult];
             [listResult release];
         }
     }
     mailimap_list_result_free(allList);
     return allFolders;
+}
+
+- (NSSet *)namespaces {
+    struct mailimap_namespace_data * namespaceData;
+    struct mailimap_namespace_info * namespaceInfo;
+    NSString *namespace;
+    clistiter *cur;
+
+    int err;
+
+    NSMutableSet *namespacesList = [NSMutableSet set];
+
+    //Fill the subscribed folder array
+    err = mailimap_namespace([self session], &namespaceData);
+    if (err != MAILIMAP_NO_ERROR) {
+        self.lastError = MailCoreCreateErrorFromIMAPCode(err);
+        return nil;
+    }
+    if (namespaceData->ns_personal == NULL)
+    {
+        return namespacesList;
+    }
+
+    for(cur = clist_begin(namespaceData->ns_personal->ns_data_list); cur != NULL; cur = cur->next) {
+        namespaceInfo = cur->data;
+        namespace = (NSString *)CFStringCreateWithCString(NULL, namespaceInfo->ns_prefix, kCFStringEncodingUTF7_IMAP);
+        [namespacesList addObject:namespace];
+        [namespace release];
+    }
+    mailimap_namespace_data_free(namespaceData);
+    return namespacesList;
 }
 @end

@@ -108,6 +108,8 @@
 
 - (NSSet *)capabilities;
 
+- (NSSet *)namespaces;
+
 /* Intended for advanced use only */
 - (mailimap *)session;
 - (struct mailstorage *)storageStruct;
