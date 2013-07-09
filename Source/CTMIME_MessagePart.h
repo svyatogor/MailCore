@@ -31,15 +31,27 @@
 
 #import <Foundation/Foundation.h>
 #import "CTMIME.h"
-
+#import "CTMIME_SinglePart.h"
 
 @interface CTMIME_MessagePart : CTMIME {
     CTMIME *myMessageContent;
     struct mailimf_fields *myFields;
+    
+    BOOL mFetched;
+    struct mailmime *mMime;
+    struct mailmessage *mMessage;
+    NSError *lastError;
+    NSMutableArray *myContentList;
+    struct mailmime_fields *mMimeFields;
 }
+@property(nonatomic) BOOL fetched;
+@property(nonatomic, retain) NSData *data;
+@property(nonatomic, retain) NSError *lastError;
 + (id)mimeMessagePartWithContent:(CTMIME *)mime;
 - (id)initWithContent:(CTMIME *)messageContent;
 - (void)setContent:(CTMIME *)aContent;
 - (CTMIME *)content;
 - (void)setIMFFields:(struct mailimf_fields *)imfFields;
+- (BOOL)fetchPart;
+- (BOOL)fetchPartWithProgress:(CTProgressBlock)block;
 @end

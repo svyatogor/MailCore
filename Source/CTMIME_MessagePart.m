@@ -34,8 +34,32 @@
 #import <libetpan/libetpan.h>
 #import "MailCoreTypes.h"
 #import "CTMIMEFactory.h"
+#import "MailCoreUtilities.h"
+
+
+static inline struct imap_session_state_data *
+get_session_data(mailmessage * msg)
+{
+    return msg->msg_session->sess_data;
+}
+
+
+static void download_progress_callback(size_t current, size_t maximum, void * context) {
+    CTProgressBlock block = context;
+    block(current, maximum);
+}
+
+static inline mailimap * get_imap_session(mailmessage * msg)
+{
+    return get_session_data(msg)->imap_session;
+}
+
 
 @implementation CTMIME_MessagePart
+@synthesize data=mData;
+@synthesize fetched=mFetched;
+@synthesize lastError;
+
 + (id)mimeMessagePartWithContent:(CTMIME *)mime {
     return [[[CTMIME_MessagePart alloc] initWithContent:mime] autorelease];
 }
@@ -44,6 +68,8 @@
               forMessage:(struct mailmessage *)message {
     self = [super initWithMIMEStruct:mime forMessage:message];
     if (self) {
+        mMime = mime;
+        mMessage = message;
         struct mailmime *content = mime->mm_data.mm_message.mm_msg_mime;
         myMessageContent = [[CTMIMEFactory createMIMEWithMIMEStruct:content
                                                          forMessage:message] retain];
@@ -86,4 +112,58 @@
 - (void)setIMFFields:(struct mailimf_fields *)imfFields {
     myFields = imfFields;
 }
+
+- (BOOL)fetchPartWithProgress:(CTProgressBlock)block {
+    if (self.fetched == NO) {
+        struct mailmime_single_fields *mimeFields = NULL;
+        
+        int encoding = MAILMIME_MECHANISM_8BIT;
+        mimeFields = mailmime_single_fields_new(mMime->mm_mime_fields, mMime->mm_content_type);
+        if (mimeFields != NULL && mimeFields->fld_encoding != NULL)
+            encoding = mimeFields->fld_encoding->enc_type;
+        
+        char *fetchedData = NULL;
+        size_t fetchedDataLen;
+        int r;
+        
+        if (mMessage->msg_session != NULL) {
+            mailimap_set_progress_callback(get_imap_session(mMessage), &download_progress_callback, NULL, block);
+        }
+        r = mailmessage_fetch_section_body(mMessage, mMime, &fetchedData, &fetchedDataLen);
+        if (mMessage->msg_session != NULL) {
+            mailimap_set_progress_callback(get_imap_session(mMessage), NULL, NULL, NULL);
+        }
+        if (r != MAIL_NO_ERROR) {
+            if (fetchedData) {
+                mailmessage_fetch_result_free(mMessage, fetchedData);
+            }
+            self.lastError = MailCoreCreateErrorFromIMAPCode(r);
+            return NO;
+        }
+        
+        
+        size_t current_index = 0;
+        char * result;
+        size_t result_len;
+        r = mailmime_part_parse(fetchedData, fetchedDataLen, &current_index,
+                                encoding, &result, &result_len);
+        if (r != MAILIMF_NO_ERROR) {
+            mailmime_decoded_part_free(result);
+            self.lastError = MailCoreCreateError(r, @"Error parsing the message");
+            return NO;
+        }
+        NSData *data = [NSData dataWithBytes:result length:result_len];
+        mailmessage_fetch_result_free(mMessage, fetchedData);
+        mailmime_decoded_part_free(result);
+        mailmime_single_fields_free(mimeFields);
+        self.data = data;
+        self.fetched = YES;
+    }
+    return YES;
+}
+
+- (BOOL)fetchPart {
+    return [self fetchPartWithProgress:^(size_t curr, size_t max){}];
+}
+
 @end
